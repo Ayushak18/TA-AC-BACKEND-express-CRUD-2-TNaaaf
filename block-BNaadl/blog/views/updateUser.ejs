@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Articles</title>
+  </head>
+  <body>
+    <h1>Updating Article</h1>
+    <form action="/articles/<%= user.id %>" method="POST">
+      <input
+        type="text"
+        placeholder="Title"
+        name="title"
+        value="<%= user.title %>"
+      />
+      <input
+        type="text"
+        placeholder="Description"
+        name="description"
+        value="<%= user.description %>"
+      />
+      <input
+        type="text"
+        placeholder="Tags"
+        name="tags"
+        value="<%= user.tags %>"
+      />
+      <input
+        type="text"
+        placeholder="Author"
+        name="author"
+        value="<%= user.author %>"
+      />
+      <input
+        type="number"
+        placeholder="Likes"
+        name="likes"
+        value="<%= user.likes %>"
+      />
+      <input type="submit" value="Add User" />
+      <button>
+        <a href="/articles">Back</a>
+      </button>
+    </form>
+  </body>
+</html>
