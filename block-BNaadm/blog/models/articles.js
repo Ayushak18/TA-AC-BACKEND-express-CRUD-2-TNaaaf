@@ -7,6 +7,12 @@ let articleSchema = new Schema({
   tags: [String],
   author: String,
   likes: Number,
+  comments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'comment',
+    },
+  ],
 });
 
 let Article = mongoose.model('article', articleSchema);

@@ -22,5 +22,29 @@
     <button>
       <a href="/articles">All Articles</a>
     </button>
+
+    <div class="comments-form">
+      <form action="/articles/<%= user.id %>/comments " method="POST">
+        <textarea
+          name="text"
+          cols="30"
+          rows="10"
+          placeholder="Comment"
+        ></textarea>
+        <input type="submit" value="Add Comment" />
+      </form>
+    </div>
+
+    <div class="comments">
+      <% user.comments.forEach((comment)=>{ %>
+      <h2><%= comment.text %></h2>
+      <button>
+        <a href="/comments/<%= comment.id %>/edit ">Edit comment</a>
+      </button>
+      <button>
+        <a href="/comments/<%= comment.id %>/delete ">Delete comment</a>
+      </button>
+      <% }) %>
+    </div>
   </body>
 </html>
