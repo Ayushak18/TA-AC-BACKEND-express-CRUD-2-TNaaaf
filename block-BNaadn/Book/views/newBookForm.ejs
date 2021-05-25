@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add new Book</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Add new book</h1>
     <form action="/books" method="post">
-        <input type="text" name="title" placeholder="Title">
-        <input type="text" name="summary" placeholder="Summary">
-        <input type="number" name="pages" placeholder="Pages">
-        <input type="text" name="publication" placeholder="Publication">
-        <input type="text" name="coverImage" placeholder="Cover Image">
-        <input type="submit" value="Add Book">
+      <input type="text" name="title" placeholder="Title" />
+      <input type="text" name="summary" placeholder="Summary" />
+      <input type="number" name="pages" placeholder="Pages" />
+      <input type="text" name="publication" placeholder="Publication" />
+      <input type="text" name="coverImage" placeholder="Cover Image" />
+      <label for="category">
+        <select name="category">
+          <option value="Fiction">Fiction</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Technology">Technology</option>
+          <option value="Motivation">Motivation</option>
+        </select>
+      </label>
+      <input type="submit" value="Add Book" />
     </form>
-</body>
+  </body>
 </html>

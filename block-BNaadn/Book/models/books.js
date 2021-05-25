@@ -8,10 +8,11 @@ let bookSchema = new Schema(
     pages: Number,
     publication: String,
     coverImage: String,
+    category: String,
   },
   { timestamps: true }
 );
 
-let Book  = mongoose.model('book',bookSchema);
+let Book = mongoose.model('book', bookSchema);
 
 module.exports = Book;
