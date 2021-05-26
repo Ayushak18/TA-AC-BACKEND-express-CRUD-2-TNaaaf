@@ -9,6 +9,10 @@ let bookSchema = new Schema(
     publication: String,
     coverImage: String,
     category: String,
+    authorID: {
+      type: Schema.Types.ObjectId,
+      ref: 'author',
+    },
   },
   { timestamps: true }
 );
