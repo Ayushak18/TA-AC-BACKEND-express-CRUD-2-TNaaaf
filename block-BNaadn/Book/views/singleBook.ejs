@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= book.title %></title>
+  </head>
+  <body>
+    <h1><%= book.title %></h1>
+    <p>Summary - <%= book.summary %></p>
+    <p>Pages - <%= book.pages %></p>
+    <p>Publication House - <%= book.publication %></p>
+    <p>Category - <%= book.category %></p>
+    <p>Author's Name - <%= book.authorID.name %></p>
+    <p>Author's Email- <%= book.authorID.email %></p>
+    <p>Author's Country - <%= book.authorID.country %></p>
+    <img src="<%= book.coverImage %>" alt="Book Cover" />
+    <div>
+      <a href="/books/<%= book.id %>/edit ">Edit</a>
+      <a href="/books/<%= book.id %>/delete ">Delete</a>
+      <a href="/books">Back</a>
+    </div>
+  </body>
+</html>

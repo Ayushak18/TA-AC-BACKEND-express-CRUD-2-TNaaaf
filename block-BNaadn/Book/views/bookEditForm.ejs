@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Book</title>
+  </head>
+  <body>
+    <h1>Edit Book</h1>
+    <form action="/books/<%= book.id %> " method="post">
+      <input
+        type="text"
+        name="title"
+        placeholder="Title"
+        value="<%= book.title %> "
+      />
+      <input
+        type="text"
+        name="summary"
+        placeholder="Summary"
+        value="<%= book.summary %> "
+      />
+      <input
+        type="number"
+        name="pages"
+        placeholder="Pages"
+        value="<%= book.pages %>"
+      />
+      <input
+        type="text"
+        name="publication"
+        placeholder="Publication"
+        value="<%= book.publication %> "
+      />
+      <input
+        type="text"
+        name="coverImage"
+        placeholder="Cover Image"
+        value="<%= book.coverImage %> "
+      />
+
+      <label for="category">
+        <select name="category">
+          <option value="Fiction">Fiction</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Technology">Technology</option>
+          <option value="Motivation">Motivation</option>
+        </select>
+      </label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Author Name"
+        value="<%= book.authorID.name %>"
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="Author's Email"
+        value="<%= book.authorID.email %>"
+      />
+      <input
+        type="text"
+        name="country"
+        placeholder="Author's Country"
+        value="<%= book.authorID.country %>"
+      />
+
+      <input type="submit" value="Update Book" />
+      <a href="/books/<%= book.id %> ">Back</a>
+    </form>
+  </body>
+</html>
