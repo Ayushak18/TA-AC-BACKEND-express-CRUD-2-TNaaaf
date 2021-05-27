@@ -8,8 +8,18 @@
   </head>
   <body>
     <h1>Books Route</h1>
-    <a href="/books/new">Create a new book</a>
-    <a href="/authors">Add new author</a>
+    <button>
+      <a href="/books/new">Create a new book</a>
+    </button>
+    <button>
+      <a href="/authors">Add new author</a>
+    </button>
+    <button>
+        <a href="/books/authors">Books By Authors</a>
+    </button>
+    <button>
+        <a href="/books/category">Books By Category</a>
+    </button>
     <% books.forEach((book,index)=>{ %>
     <h1><%= index+1 %>. <%= book.title %></h1>
     <a href="/books/<%= book.id %> ">Know More</a>
