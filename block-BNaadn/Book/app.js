@@ -7,6 +7,7 @@ let mongoose = require('mongoose');
 
 let indexRouter = require('./routes/index');
 let booksRouter = require('./routes/books');
+let authorsRouter = require('./routes/authors');
 
 mongoose.connect(
   'mongodb://localhost/Book',
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
+app.use('/authors', authorsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
