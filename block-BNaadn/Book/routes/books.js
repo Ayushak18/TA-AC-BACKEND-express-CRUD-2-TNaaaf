@@ -77,6 +77,7 @@ router.post('/:id', (req, res, next) => {
     if (error) {
       next(error);
     } else {
+      // console.log(book.authorID);
       Author.findByIdAndUpdate(book.authorID, req.body, (error, author) => {
         if (error) {
           next(error);
@@ -88,13 +89,23 @@ router.post('/:id', (req, res, next) => {
   });
 });
 
-router.get('/:id/delete', (req, res) => {
+router.get('/:id/delete', (req, res, next) => {
   let bookId = req.params.id;
   Book.findByIdAndRemove(bookId, (error, book) => {
     if (error) {
       next(error);
     } else {
-      res.redirect('/books');
+      Author.findByIdAndUpdate(
+        book.authorID,
+        { $pull: { bookID: book.id } },
+        (error, data) => {
+          if (error) {
+            next(error);
+          } else {
+            res.redirect('/books');
+          }
+        }
+      );
     }
   });
 });
