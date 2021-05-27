@@ -22,9 +22,14 @@
           <option value="Motivation">Motivation</option>
         </select>
       </label>
-      <input type="text" name="name" placeholder="Author Name" />
-      <input type="email" name="email" placeholder="Author's Email">
-      <input type="text" name="country" placeholder="Author's Country">
+      <label for="author">
+        <select name="authorID">
+          <% authors.forEach((author)=>{ %>
+          <option value="<%= author._id %>"><%= author.name %></option>
+          <% }) %>
+        </select>
+      </label>
+
       <input type="submit" value="Add Book" />
     </form>
   </body>

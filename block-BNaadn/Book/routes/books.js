@@ -14,24 +14,33 @@ router.get('/', function (req, res, next) {
   });
 });
 
-router.get('/new', (req, res) => {
-  res.render('newBookForm');
-});
-
-router.post('/', (req, res, next) => {
-  // req.body.bookID =
-  Author.create(req.body, (error, author) => {
+router.get('/new', (req, res, next) => {
+  Author.find({}, (error, authors) => {
     if (error) {
       next(error);
     } else {
-      req.body.authorID = author.id;
-      Book.create(req.body, (error, book) => {
-        if (error) {
-          next(error);
-        } else {
-          res.redirect('/books');
+      res.render('newBookForm', { authors: authors });
+    }
+  });
+});
+
+router.post('/', (req, res, next) => {
+  Book.create(req.body, (error, book) => {
+    if (error) {
+      next(error);
+    } else {
+      let authorID = req.body.authorID;
+      Author.findByIdAndUpdate(
+        authorID,
+        { $push: { bookID: book.id } },
+        (error, data) => {
+          if (error) {
+            next(error);
+          } else {
+            res.redirect('/books');
+          }
         }
-      });
+      );
     }
   });
 });
